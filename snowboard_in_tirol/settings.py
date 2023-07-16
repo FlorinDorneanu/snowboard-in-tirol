@@ -30,7 +30,7 @@ SECRET_KEY = 'snowboard_in_tirol_super_secret_key'
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-florindorneanu-snowboard-eikntqjvpn.us2.codeanyapp.com',
-                 'snowboard-in-tirol.herokuapp.com', 'localhost']
+                 'snowboard-in-tirol.herokuapp.com']
 
 
 # Application definition
