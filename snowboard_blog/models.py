@@ -38,6 +38,7 @@ class Comment(models.Model):
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
+    reply_to_comments = models.TextField(blank=True, null=True)
 
     class Meta:
         ordering = ['created_on']
