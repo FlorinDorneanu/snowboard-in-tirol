@@ -9,3 +9,6 @@ class PostList(generic.ListView):
     template_name = 'index.html'
     paginate_by = 4
 
+
+def get_homepage(request):
+    return render(request, 'index.html')
