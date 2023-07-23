@@ -26,17 +26,18 @@
 
     <!-- * Navigation bar-->
 
-    <nav>
-        <ul>
-            <li>
-                <a href="{% url 'home' %}">Home</a>
-            </li>
-        </ul>
-    </nav>
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
+    <nav class="nav-bar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">snow<span
+                        class="blue-board">board</span>in<span class="thin">|tirol</span></span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <main>
+                {% block content %}
+                {% endblock %}
+            </main>
 </body>
 
 </html>
