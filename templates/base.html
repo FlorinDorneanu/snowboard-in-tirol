@@ -22,14 +22,14 @@
 
 </head>
 
-<body class="d-flex flex-collumn h-120 main-blog">
+<body class="d-flex flex-collumn h-100 main-blog">
 
     <!-- * Navigation bar-->
 
     <nav class="nav-bar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">snow<span
-                        class="blue-board">board</span>in<span class="thin">|tirol</span></span></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">Snow<span
+                        class="blue-board">board</span> in<span class="thin"> Tirol</span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,12 +52,28 @@
                     </li>
                     {% endif %}
                 </ul>
-
+                <span class="navbar-text text-muted">
+                    Snowboard Rides In Tirol
+                </span>
             </div>
-            <main>
-                {% block content %}
-                {% endblock %}
-            </main>
+        </div>
+    </nav>
+
+    <main class="flex-shrink-0 main-bg">
+        {% block content %}
+        <!-- * My Content -->
+        {% endblock %}
+    </main>
+
+    <!-- * Footer -->
+    <footer class="footer mt-auto py-3 dark-bg">
+        <p class="m-0 text-center text-white">Snowboard In Tirol</p>
+        <p class="m-0 text-center text-white">Follow me: <i class="fab fa-facebook-square ms-3"></i>
+            <i class="fab fa-twitter-square ms-3"></i>
+            <i class="fab fa-instagram-square ms-3"></i>
+            <i class="fab fa-youtube-square ms-3"></i>
+        </p>
+    </footer>
 </body>
 
 </html>
