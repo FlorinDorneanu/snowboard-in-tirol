@@ -7,3 +7,29 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     color: #FF5733;
+}
+
+.mauve-board {
+    color: #804b6f;
+}
+
+.thin {
+    font-weight: 300;
+}
+
+.light-bg {
+    background-color: #fff;
+}
+
+.dark-bg {
+    background-color: #a01b3e;
+}
+
+.main-bg {
+    background-color: #f9fbfc;
+}
+
+.card {
+    border: none;
+    background-color: transparent;
+}
