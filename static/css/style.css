@@ -85,3 +85,58 @@ body {
     transform: skew(15deg);
     z-index: 100;
 }
+
+.post-link {
+    text-decoration: none;
+    color: #a01b3e;
+}
+
+.post-link:hover,
+.page-link {
+    color: #804b6f;
+}
+
+.post-title {
+    margin-top: 20%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: lightgray;
+}
+
+.btn-signup {
+    background-color: #23bb9a;
+    color: #fff;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #fff;
+    color: #23bb9a;
+}
+
+.link {
+    color: #23bb9a;
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: #a01b3e;
+    text-decoration: underline;
+}
+
+.btn-like {
+    color: #804b6f;
+    border: none;
+    background: transparent;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: #804b6f;
+    background: transparent;
+    border: none;
+}
