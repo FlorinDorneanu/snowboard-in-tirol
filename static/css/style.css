@@ -13,12 +13,20 @@ body {
     color: #804b6f;
 }
 
+.text-muted {
+    font-family: Merriweather, sans-serif;
+}
+
 .thin {
     font-weight: 300;
 }
 
 .light-bg {
     background-color: #fff;
+}
+
+.bg-white {
+    padding: 20px;
 }
 
 .dark-bg {
@@ -50,6 +58,7 @@ body {
     color: white;
     margin: 4px;
     text-transform: uppercase;
+    font-family: Montserrat, sans-serif;
 }
 
 .masthead {
