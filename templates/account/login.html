@@ -10,17 +10,20 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
+
+
             <h3>{% trans "Sign In" %}</h3>
 
-            <p>{% blocktrans %}Welcome back to the Snowboard in Tirol blog. to interact with my blog and be able to
-                express yourself, please log in. If
-                you
-                have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
-                first.{% endblocktrans %}</p>
+            <p>{% blocktrans %}Welcome to the Snowboard in Tirol blog. To interact with the posts, please log in.
+                If you want to be part of the community and you don't have an account yet, then
+                <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+            </p>
+
         </div>
     </div>
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
+
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
@@ -32,4 +35,5 @@
         </div>
     </div>
 </div>
+
 {% endblock %}
