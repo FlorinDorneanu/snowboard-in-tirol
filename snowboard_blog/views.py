@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm
 
 
@@ -19,6 +19,7 @@ class PostDetail(View):
         comments = post.comments.filter(approved=True).order_by('created_on')
         for comment in comments:
             comment.replies = comment.replies.filter(approved=True)
+            comment_form = CommentForm()
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -30,7 +31,7 @@ class PostDetail(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
-                "comment_form": CommentForm(initial={'parent_comment': None}),
+                "comment_form": CommentForm(initial={'parent_id': None}),
             },
         )
 
@@ -38,16 +39,34 @@ class PostDetail(View):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
-        parent_comment = request.POST.get('parent_comment')
+        for comment in comments:
+            comment.replies = comment.replies.filter(approved=True)
+
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
-        comment_form = CommentForm(data=request.POST, initial={
-                                   'parent_comment': parent_comment})
+        comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
-            comment_form.instance.email = request.user.email
+            parent_id = comment_form.cleaned_data.get('parent_id')
+            parent_comment = None
+            if parent_id:
+                try:
+                    parent_comment = Comment.objects.get(id=patent_id, post=post, approved=True)
+                    except Comment.DoesNotExist:
+                        pass
+
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.approved_by_admin = False
+            new_comment.save()
+            
+            if parent_comment:
+                parent_comment.replies.set([new_comment])
+            return redirect(post.get_absolute_url())
+
+            comment_form.instance.email = request.user.email 
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.post = post
