@@ -40,6 +40,8 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
     reply_to_comments = models.TextField(blank=True, null=True)
+    parrent_comment = models.ForeignKey(
+        'self', null=True, blank=True, related_name='replies', on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['created_on']
