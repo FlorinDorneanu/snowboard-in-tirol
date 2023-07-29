@@ -11,6 +11,9 @@ from django import forms
 
 
 class CommentForm(forms.ModelForm):
+    parent_comment = forms.IntegerField(
+        widget=forms.HiddenInput, required=False)
+
     class Meta:
         model = Comment
         fields = ('body', 'parent_comment')
