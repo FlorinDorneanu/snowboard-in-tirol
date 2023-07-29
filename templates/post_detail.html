@@ -82,9 +82,10 @@
                 <!-- For later -->
                 {% if commented %}
                 <div class="alert alert-success" role="alert">
-                    Your comment is awaiting approval
+                    I have to check your comment, so you have to wait for approval!
                 </div>
                 {% else %}
+
                 {% if user.is_authenticated %}
 
                 <h3>Leave a comment:</h3>
@@ -96,6 +97,7 @@
                 </form>
                 {% endif %}
                 {% endif %}
+
             </div>
         </div>
     </div>
