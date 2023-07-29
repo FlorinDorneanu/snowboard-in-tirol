@@ -48,3 +48,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
+    def has_replies(self):
+        return Comment.objects.filter(parent=self).exists()
