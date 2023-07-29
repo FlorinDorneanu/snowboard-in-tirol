@@ -72,6 +72,27 @@
                     </p>
                     <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
+                    <!-- Render nested replies -->
+                    {% for reply in comment.replies.all %}
+                    <div class="reply comments" style="padding: 10px; margin-left: 20px;">
+                        <p class="font-weight-bold">
+                            {{ reply.name }}
+                            <span class="text-muted font-weight-normal">
+                                {{ reply.created_on}}
+                            </span> replied:
+                        </p>
+                        {{ reply.body | linebreaks}}
+                    </div>
+                    {% endfor %}
+                    <!-- Reply form for each comment -->
+                    <div class="reply-form">
+                        <form method="post">
+                            {{ comment_form | crispy }}
+                            {% csrf_token %}
+                            <input type="hidden" name="parent_comment" value="{{ comment.id }}">
+                            <button type="submit" class="btn btn-signup btn-lg">Reply</button>
+                        </form>
+                    </div>
                 </div>
                 <!-- Our for loop ends here -->
                 {% endfor %}
