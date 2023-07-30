@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -40,8 +41,8 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
     reply_to_comments = models.TextField(blank=True, null=True)
-    parrent_id = models.ForeignKey(
-        'self', null=True, blank=True, related_name='replies', on_delete=models.CASCADE)
+    parent_id = models.ForeignKey(
+        'self', null=True, blank=True, related_name='replies', on_delete=models.CASCADE, db_column='parent_id')
 
     class Meta:
         ordering = ['created_on']
@@ -51,3 +52,6 @@ class Comment(models.Model):
 
     def has_replies(self):
         return Comment.objects.filter(parent=self).exists()
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[str(self.post.slug)])
