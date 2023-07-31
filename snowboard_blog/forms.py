@@ -3,7 +3,7 @@ forms.py
 
 This module contains Django forms used in the application.
 
-- CommentForm: A form used for submitting comments, including support for nested comments.
+- CommentForm: A form used for submitting comments.
 '''
 
 from .models import Comment
