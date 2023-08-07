@@ -97,12 +97,12 @@ p {
 
 .post-link {
     text-decoration: none;
-    color: #728FCE;
+    color: #6c757d;
 }
 
 .post-link:hover,
 .page-link {
-    color: #804b6f;
+    color: #d4dce5;
 }
 
 .post-title {
@@ -190,3 +190,8 @@ label.requiredField {
 textarea#body_id.textarea.form-control {
     margin-top: 10px;
 }
+
+img.card-img-top {
+    border: 3px solid rgba(25, 116, 210, 0.3);
+}
+
