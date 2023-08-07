@@ -1,12 +1,24 @@
 body {
     background-color: #f9fbfc;
+    font-family: Merriweather, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: Montserrat, sans-serif;
+}
+
+p {
+    font-family: Merriweather, sans-serif;
 }
 
 .brand {
     font-family: Montserrat, sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
-    color: #FF5733;
+    color: #2B547E;
 }
 
 .mauve-board {
@@ -51,7 +63,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #23bb9a;
+    background-color: #728FCE;
 }
 
 .author {
@@ -66,38 +78,26 @@ body {
     overflow: hidden;
     position: relative;
     display: inline-block;
-    height: 33vh;
     width: 100%;
 }
 
 .masthead-text {
-    background-color: #a01b3e;
+    background-color: #728FCE;
     color: white;
     position: relative;
+    border: 2px solid rgba(25, 116, 210, 0.3);
 }
 
 .masthead-image {
     position: relative;
     overflow: hidden;
+    border: 3px solid rgba(25, 116, 210, 0.3);
 }
 
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #a01b3e;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-}
 
 .post-link {
     text-decoration: none;
-    color: #a01b3e;
+    color: #728FCE;
 }
 
 .post-link:hover,
@@ -116,36 +116,37 @@ body {
 }
 
 .btn-signup {
-    background-color: #23bb9a;
+    background-color: #728FCE;
     color: #fff;
+    margin-top: 10px;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #23bb9a;
+    color: #728FCE;
 }
 
 .link {
-    color: #23bb9a;
+    color: #728FCE;
     text-decoration: none;
 }
 
 .link:hover,
 .link:active {
-    color: #a01b3e;
+    color: #728FCE;
     text-decoration: underline;
 }
 
 .btn-like {
-    color: #804b6f;
+    color: #728FCE;
     border: none;
     background: transparent;
 }
 
 .btn-like:hover,
 .btn-like:active {
-    color: #804b6f;
+    color: #728FCE;
     background: transparent;
     border: none;
 }
@@ -167,8 +168,25 @@ body {
 }
 
 div.col-1.d-flex.align-items-center {
-    padding: 0 !important;
+    padding: 0 important!;
 }
 
+.footer {
+    background-color: rgba(43, 84, 126, 0.7);
+}
 
+.footer > i {
+    background-color: #0909FF;
+}
 
+span.asteriskField {
+    display: none;
+}
+
+label.requiredField {
+    margin-botton: 10px;
+}
+
+textarea#body_id.textarea.form-control {
+    margin-top: 10px;
+}
