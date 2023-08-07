@@ -161,3 +161,14 @@ body {
 .card-custom:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
+.row {
+    margin-bottom: 80px;
+}
+
+div.col-1.d-flex.align-items-center {
+    padding: 0 !important;
+}
+
+
+

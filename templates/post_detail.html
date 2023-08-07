@@ -50,7 +50,7 @@
                             <span class="text-secondary"><i class="far fa-heart"></i></span>
                             {% endif %}
                             <!-- The number of likes goes before the closing strong tag -->
-                            <span class="text-secondary">{{ post.number_of_likes }} </span>
+                            <span class="text-secondary">{{ post.number_of_likes }}</span>
                         </strong>
                     </div>
                     <div class="col-1">
@@ -88,14 +88,25 @@
                     {{ comment.body | linebreaks }}
                     {% if user.is_authenticated %}
                     <!-- Start like comment -->
-                    <form class="d-inline" action="{% url 'comment_like' comment.id %}" method="POST">
-                        {% csrf_token %}
-                        {% if comment.likes.exists %}
-                        <button type="submit" class="btn-like"><i class="fas fa-heart"></i></button>
-                        {% else %}
-                        <button type="submit" class="btn-like"><i class="far fa-heart"></i></button>
-                        {% endif %}
-                    </form>
+                           <div class="row comment-likes-section">
+                    <div class="col-1">
+                        <strong>
+                            <form class="d-inline" action="{% url 'comment_like' comment.id %}" method="POST">
+                                {% csrf_token %}
+                                {% if comment.likes.exists %}
+                                <button type="submit" class="btn-like"><i class="fas fa-heart"></i></button>
+                                {% else %}
+                                <button type="submit" class="btn-like"><i class="far fa-heart"></i></button>
+                                {% endif %}
+                            </form>
+                        </strong>
+                    </div>
+                    <div class="col-1 d-flex align-items-center" style="padding: 0;">
+                        <strong>
+                        <span class="text-secondary likes-count">{{ comment.likes.count }}</span>
+                        </strong>
+                    </div>
+                </div>
                     <!-- End like comment -->
                     {% endif %}
                 </div>
