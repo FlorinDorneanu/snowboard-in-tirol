@@ -1,10 +1,8 @@
-/* Set the background color and font for the entire page */
 body {
     background-color: #f9fbfc;
     font-family: Merriweather, sans-serif;
 }
 
-/* Define font family for various header levels */
 h1,
 h2,
 h3,
@@ -12,12 +10,10 @@ h4 {
     font-family: Montserrat, sans-serif;
 }
 
-/* Define font family for paragraphs */
 p {
     font-family: Merriweather, sans-serif;
 }
 
-/* Define styling for the 'brand' element */
 .brand {
     font-family: Montserrat, sans-serif;
     font-size: 1.5rem;
@@ -25,54 +21,45 @@ p {
     color: #2B547E;
 }
 
-/* Define styling for elements with the 'mauve-board' class */
 .mauve-board {
     color: #804b6f;
 }
 
-/* Define styling for text with 'text-muted' class */
 .text-muted {
     font-family: Merriweather, sans-serif;
     color: #804b6f;
 }
 
-/* Define styling for elements with 'thin' class */
+
 .thin {
     font-weight: 300;
 }
 
-/* Define background color for light backgrounds */
 .light-bg {
     background-color: #fff;
 }
 
-/* Define background color for white backgrounds */
 .bg-white {
     padding: 20px;
 }
 
-/* Define background color for dark backgrounds */
 .dark-bg {
     background-color: #a01b3e;
 }
 
-/* Define background color for main content area */
 .main-bg {
     background-color: #f9fbfc;
 }
 
-/* Define styling for cards */
 .card {
     border: none;
     background-color: transparent;
 }
 
-/* Define styling for image containers */
 .image-container {
     position: relative;
 }
 
-/* Define styling for an image flash */
 .image-flash {
     position: absolute;
     bottom: 5%;
@@ -81,7 +68,6 @@ p {
     background-color: #728FCE;
 }
 
-/* Define styling for author information */
 .author {
     color: white;
     margin: 4px;
@@ -89,7 +75,6 @@ p {
     font-family: Montserrat, sans-serif;
 }
 
-/* Define styling for the masthead section */
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -98,7 +83,6 @@ p {
     width: 100%;
 }
 
-/* Define styling for the masthead text */
 .masthead-text {
     background-color: #728FCE;
     color: white;
@@ -106,72 +90,62 @@ p {
     border: 2px solid rgba(25, 116, 210, 0.3);
 }
 
-/* Define styling for the masthead image */
 .masthead-image {
     position: relative;
     overflow: hidden;
     border: 3px solid rgba(25, 116, 210, 0.3);
 }
 
-/* Define styling for post links */
+
 .post-link {
     text-decoration: none;
     color: #6c757d;
 }
 
-/* Define styling for post links on hover */
 .post-link:hover,
 .page-link {
     color: #d4dce5;
 }
 
-/* Define styling for post titles */
 .post-title {
     margin-top: 20%;
     margin-left: 5%;
 }
 
-/* Define styling for post subtitles */
 .post-subtitle {
     margin-left: 5%;
     color: lightgray;
 }
 
-/* Define styling for signup button */
 .btn-signup {
     background-color: #728FCE;
     color: #fff;
     margin-top: 10px;
 }
 
-/* Define styling for signup button on hover and active state */
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
     color: #728FCE;
 }
 
-/* Define styling for links */
 .link {
     color: #728FCE;
     text-decoration: none;
 }
 
-/* Define styling for links on hover and active state */
 .link:hover,
 .link:active {
     color: #728FCE;
     text-decoration: underline;
 }
 
-/* Define styling for like buttons */
 .btn-like {
     color: #D22B2B;
     border: none;
     background: transparent;
 }
 
-/* Define styling for like buttons on hover and active state */
 .btn-like:hover,
 .btn-like:active {
     color: #D22B2B;
@@ -179,7 +153,6 @@ p {
     border: none;
 }
 
-/* Define styling for custom cards */
 .card-custom {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -188,47 +161,38 @@ p {
     transition: box-shadow 0.3s ease;
 }
 
-/* Define styling for custom cards on hover */
 .card-custom:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Define margin for rows */
 .row {
     margin-bottom: 80px;
 }
 
-/* Define styling for specific column elements */
 div.col-1.d-flex.align-items-center {
     padding: 0 important !;
 }
 
-/* Define styling for the footer section */
 .footer {
     background-color: rgba(43, 84, 126, 0.7);
 }
 
-/* Define styling for icons within the footer */
 .footer>i {
     background-color: #0909FF;
 }
 
-/* Hide asteriskField span elements */
 span.asteriskField {
     display: none;
 }
 
-/* Define styling for required field labels */
 label.requiredField {
     margin-bottom: 10px;
 }
 
-/* Define styling for the textarea element */
 textarea#body_id.textarea.form-control {
     margin-top: 10px;
 }
 
-/* Define styling for card image top */
 img.card-img-top {
     border: 3px solid rgba(25, 116, 210, 0.3);
 }
