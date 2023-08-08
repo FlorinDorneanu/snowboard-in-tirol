@@ -1,11 +1,14 @@
+# * Import the necessary module from Django *
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
+# * Define choices for the status field *
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
+# * Define the post model *
 class Post(models.Model):
 
     title = models.CharField(max_length=200, unique=True)
@@ -21,6 +24,7 @@ class Post(models.Model):
     likes = models.ManyToManyField(
         User, related_name='snowboard_blog_likes', blank=True)
 
+# * Meta class to define ordering *
     class Meta:
         ordering = ['-created_on']
 
@@ -31,6 +35,7 @@ class Post(models.Model):
         return self.likes.count()
 
 
+# * Define the comment Model *
 class Comment(models.Model):
 
     post = models.ForeignKey(
@@ -42,6 +47,7 @@ class Comment(models.Model):
     likes = models.ManyToManyField(User, related_name='liked_comments')
     approved = models.BooleanField(default=False)
 
+# * Meta class to define ordering *
     class Meta:
         ordering = ['created_on']
 
