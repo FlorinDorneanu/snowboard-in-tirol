@@ -1,8 +1,10 @@
+# * Import the necessary modules from Django *
 from django.contrib import admin
 from .models import Post, Comment
 from django_summernote.admin import SummernoteModelAdmin
 
 
+# * Register the Post Model with SummernoteModelAdmin *
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
 
@@ -13,6 +15,7 @@ class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
 
 
+# * Register the Comment model with CommentAdmin *
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'body', 'post', 'created_on', 'approved')
@@ -20,5 +23,6 @@ class CommentAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email', 'body')
     actions = ['approve_comments']
 
+# *Custom action to approve selected comments *
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)

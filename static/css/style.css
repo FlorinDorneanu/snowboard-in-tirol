@@ -27,7 +27,9 @@ p {
 
 .text-muted {
     font-family: Merriweather, sans-serif;
+    color: #804b6f;
 }
+
 
 .thin {
     font-weight: 300;
@@ -139,14 +141,14 @@ p {
 }
 
 .btn-like {
-    color: #728FCE;
+    color: #D22B2B;
     border: none;
     background: transparent;
 }
 
 .btn-like:hover,
 .btn-like:active {
-    color: #728FCE;
+    color: #D22B2B;
     background: transparent;
     border: none;
 }
@@ -168,14 +170,14 @@ p {
 }
 
 div.col-1.d-flex.align-items-center {
-    padding: 0 important!;
+    padding: 0 important !;
 }
 
 .footer {
     background-color: rgba(43, 84, 126, 0.7);
 }
 
-.footer > i {
+.footer>i {
     background-color: #0909FF;
 }
 
@@ -184,7 +186,7 @@ span.asteriskField {
 }
 
 label.requiredField {
-    margin-botton: 10px;
+    margin-bottom: 10px;
 }
 
 textarea#body_id.textarea.form-control {
@@ -194,4 +196,3 @@ textarea#body_id.textarea.form-control {
 img.card-img-top {
     border: 3px solid rgba(25, 116, 210, 0.3);
 }
-
