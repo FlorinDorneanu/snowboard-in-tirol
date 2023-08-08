@@ -60,6 +60,11 @@ p {
     position: relative;
 }
 
+.card-img-top {
+    width: 300px;
+    height: 200px;
+}
+
 .image-flash {
     position: absolute;
     bottom: 5%;
@@ -165,10 +170,6 @@ p {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.row {
-    margin-bottom: 80px;
-}
-
 div.col-1.d-flex.align-items-center {
     padding: 0 important !;
 }
@@ -195,4 +196,8 @@ textarea#body_id.textarea.form-control {
 
 img.card-img-top {
     border: 3px solid rgba(25, 116, 210, 0.3);
+}
+
+footer>a {
+    color: #fff;
 }
