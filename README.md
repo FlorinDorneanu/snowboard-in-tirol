@@ -153,14 +153,54 @@ The incorporation of nested comments would contribute to a more comprehensive an
 
 | Page                                                            | Result |
 | :-------------------------------------------------------------- | :----- |
-| [Home Page](images-for-readme/w3c-homepage.png)                 | Pass   |
-| [Post Detail](images-for-readme/w3c-packinglist-app.png)   | Pass   |
-| [Login](images-for-readme/w3c-login.png)                        | Pass   |
-| [Logout](images-for-readme/w3c-logout.png)                      | Pass   |
-| [Sign up](images-for-readme/w3c-signup.png)                     | Pass   |
+| [Home Page](documentation/w3c-validator-homepage.png)                 | Pass   |
+| [Post Detail](documentation/w3c-validator-post-detail.png)   | Pass   |
+| [Login](documentation/w3c-validator-login.png)                        | Pass   |
+| [Logout](documentation/w3c-validator-logout.png)                      | Pass   |
+| [Sign up](documentation/w3c-validator-signup.png)                     | Pass   |
 
 
 ### CSS
 
+[W3C](https://jigsaw.w3.org/css-validator/#validate_by_input) was used to validate the CSS.
 
+| File                                                  | Result |
+| :---------------------------------------------------- | :----- |
+| [static/css/style.css](documentation/w3c-validator-style.css.png) | Pass   |
+
+
+### Python
+
+[Code Institute Python Linter](https://pep8ci.herokuapp.com/) was used to validate the python code.
+
+| File                                                          | Result |
+| :------------------------------------------------------------ | :----- |
+| **Snowboard In Tirol**                                             |
+| [snowboard_in_tirol/urls.py](documentation/snowboard_in_tirol-urls.png)    | Pass   |
+| **Snowboard BLog**                                          |
+| [snowboard_blog/views.py](documentation/snowboard_blog-views.png)   | Pass   |
+| [snowboard_blog/models.py](documentation/snowboard_blog-models.png) | Pass   |
+| [snowboard_blog/forms.py](documentation/snowboard_blog-forms.png)   | Pass   |
+| [snowboard_blog/admin.py](documentation/snowboard_blog-admin.png)   | Pass   |
+| [snowboard_blog/apps.py](documentation/snowboard_blog-apps.png)   | Pass   |
+| [snowboard_blog/urls.py](documentation/snowboard_blog-urls.png)   | Pass   |
+
+
+## Manual Testing
+
+### User Stories and Test Results
+
+| User Story                                                                                                                          | Test                                                         | Result |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------ |
+| 1. As a Site User, I can view a paginated list of posts so that I can easily select a post to view.                             | Navigate to the home page and observe the paginated list of posts. | Pass   |
+| 2. As a Site Admin, I can approve or disapprove comments so that I can filter out objectionable comments.                      | Post a comment as a user, then log in as an admin and approve/disapprove the comment. | Pass   |
+| 3. As a Site Admin, I can create draft posts so that I can finish writing the content later.                                    | Create a new post and save it as a draft.                    | Pass   |
+| 4. As a Site Admin, I can create, read, update, and delete posts so that I can manage my blog content.                         | Perform CRUD operations on a post.                           | Pass   |
+| 5. As a Site User, I can like or unlike a post so that I can interact with the content.                                       | Like and unlike a post and observe the like count changes. | Pass   |
+| 6. As a Site User, I can leave comments on a post so that I can be involved in the conversations.                            | Post a comment on a post and view the comment section.     | Pass   |
+| 7. As a Site User, I can register an account so that I can comment and like the posts.                                       | Register a new account and log in to comment and like.      | Pass   |
+| 8. As a Site User/Admin, I can view comments on an individual post so that I can read the conversation.                      | Click on a post to view the full text and its comments.    | Pass   |
+| 9. As a Site User/Admin, I can view the number of likes of each post so that I can see which is the most popular.               | Observe the like count displayed next to each post.        | Pass   |
+| 10. As a Site User, I can click on a post so that I can read the full text.                                                     | Click on a post and verify that it displays the full content. | Pass   |
+| 11. As a Site User, I can view a list of posts so that I can select one to read.                                                | Navigate to the home page and observe the list of posts.   | Pass   |
 

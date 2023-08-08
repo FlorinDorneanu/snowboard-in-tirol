@@ -15,7 +15,8 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
-# * Define a class-based view for displaying post details and handling comments *
+# * Define a class-based view for displaying post details
+# and handling comments *
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
@@ -73,7 +74,8 @@ class PostDetail(View):
         )
 
 
-# * Define a class-based view for displaying post details and handling post likes *
+# * Define a class-based view for displaying post details
+# and handling post likes *
 class PostLike(View):
 
     def post(self, request, slug):
@@ -87,7 +89,8 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-# * Define a class-based view for displaying post details and handling comments likes *
+# * Define a class-based view for displaying post details
+# and handling comments likes *
 class CommentLike(View):
 
     def post(self, request, comment_id):
