@@ -1,8 +1,11 @@
+# * Import the necessary modules from Django *
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm
+
+# * Define a class-based view for listing posts *
 
 
 class PostList(generic.ListView):
@@ -10,6 +13,8 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "index.html"
     paginate_by = 6
+
+# * Define a class-based view for displaying post details and handling comments *
 
 
 class PostDetail(View):
@@ -69,6 +74,7 @@ class PostDetail(View):
         )
 
 
+# * Define a class-based view for displaying post details and handling post likes *
 class PostLike(View):
 
     def post(self, request, slug):
@@ -82,6 +88,7 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
+# * Define a class-based view for displaying post details and handling comments likes *
 class CommentLike(View):
 
     def post(self, request, comment_id):
