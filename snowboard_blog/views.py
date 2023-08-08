@@ -14,9 +14,8 @@ class PostList(generic.ListView):
     template_name = "index.html"
     paginate_by = 6
 
+
 # * Define a class-based view for displaying post details and handling comments *
-
-
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
