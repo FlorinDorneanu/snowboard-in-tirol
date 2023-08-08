@@ -14,4 +14,3 @@ class CommentForm(forms.ModelForm):
         widgets = {
             'body': forms.Textarea(attrs={'placeholder': 'Write your opinion ', 'required': False}),
         }
-
