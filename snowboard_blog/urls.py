@@ -1,6 +1,8 @@
+# * Import the necessary module from Django *
 from . import views
 from django.urls import path
 
+# * Define urls patterns *
 urlpatterns = [
     path('', views.PostList.as_view(), name="home"),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
