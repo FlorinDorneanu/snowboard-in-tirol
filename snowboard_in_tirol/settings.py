@@ -28,11 +28,11 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'snowboard_in_tirol_super_secret_key'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['8000-florindorneanu-snowboard-eikntqjvpn.us2.codeanyapp.com',
+ALLOWED_HOSTS = ['8000-florindorne-snowboardin-dzktf0bcmxu.ws-eu105.gitpod.io',
                  'snowboard-in-tirol-1614d9ced980.herokuapp.com']
 
 
