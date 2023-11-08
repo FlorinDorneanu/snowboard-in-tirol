@@ -211,3 +211,11 @@ div.text-center.p-3 {
     font-family: Montserrat, sans-serif;
     font-weight: 400;
 }
+
+.text-bg-primary {
+    background-color: #5679c5;
+}
+
+.fa-triangle-exclamation {
+    font-size: 10em;
+}
