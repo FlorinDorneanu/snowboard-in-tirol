@@ -2,11 +2,16 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.contrib import messages
+from django.views.generic import DeleteView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, EditForm
+
 
 # * Define a class-based view for listing posts *
-
 
 class PostList(generic.ListView):
     model = Post
@@ -17,7 +22,8 @@ class PostList(generic.ListView):
 
 # * Define a class-based view for displaying post details
 # and handling comments *
-class PostDetail(View):
+
+class PostDetail(SuccessMessageMixin, View):
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -57,6 +63,9 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.success(request,
+                             'Your comment has been uploaded for approval.')
+            comment_form = CommentForm()
         else:
             comment_form = CommentForm()
 
@@ -76,7 +85,8 @@ class PostDetail(View):
 
 # * Define a class-based view for displaying post details
 # and handling post likes *
-class PostLike(View):
+
+class PostLike(LoginRequiredMixin, View):
 
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
@@ -91,6 +101,7 @@ class PostLike(View):
 
 # * Define a class-based view for displaying post details
 # and handling comments likes *
+
 class CommentLike(View):
 
     def post(self, request, comment_id):
@@ -102,3 +113,56 @@ class CommentLike(View):
             comment.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[comment.post.slug]))
+
+
+class CommentDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """
+    If user is logged in:
+    Direct user to delete_comment.html template
+    User will be prompted with a message to confirm deletion.
+    """
+    model = Comment
+    template_name = "delete_comment.html"
+
+    def test_func(self):
+        comment = self.get_object()
+        return self.request.user.username == comment.name
+
+    def delete(self, request, *args, **kwargs):
+        return super(CommentDelete, self).delete(request, *args, **kwargs)
+
+    def get_success_url(self, *args, **kwargs):
+        PostDetail.comment_deleted = True
+        messages.success(self.request, 'Your comment has been deleted.')
+        return reverse("post_detail", kwargs={"slug": self.object.post.slug})
+
+
+class CommentEdit(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """
+    If user is logged in:
+    Direct user to update_comment.html template,
+    displaying ReviewForm for that specific review.
+    Post edited info back to the database and return user to post.
+    """
+    model = Comment
+    form_class = EditForm
+    template_name = "edit_comment.html"
+
+    def test_func(self):
+        comment = self.get_object()
+        return self.request.user.username == comment.name
+
+    def form_valid(self, form):
+        """
+        Upon success prompt the user with a success message.
+        """
+        super().form_valid(form)
+        messages.success(self.request, 'Your comment has been edited.')
+        return HttpResponseRedirect(self.get_success_url())
+
+    def get_success_url(self, *args, **kwargs):
+        """
+        Upon success returns user to the post detail page.
+        """
+        PostDetail.comment_edited = True
+        return reverse("post_detail", kwargs={"slug": self.object.post.slug})
