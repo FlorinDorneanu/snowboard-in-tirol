@@ -219,3 +219,13 @@ div.text-center.p-3 {
 .fa-triangle-exclamation {
     font-size: 10em;
 }
+
+.btn.btn-sm.btn-edit {
+    background-color: rgb(60, 151, 60);
+    color: white;
+}
+
+.btn.btn-sm.btn-delete {
+    background-color: rgb(208, 32, 32);
+    color: white;
+}

@@ -69,86 +69,83 @@
             <hr>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
-            <h3>Comments:</h3>
-            <div class="card-body">
-                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
-                {% for comment in comments %}
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                        {{ comment.name }}
-                        <span class=" text-muted font-weight-normal">
-                            <!-- The comment's created date goes here -->
-                            {{ comment.created_on }}
-                        </span> wrote:
-                    </p>
-                    <!-- The body of the comment goes before the | -->
-                    {{ comment.body | linebreaks }}
-                    {% if user.is_authenticated %}
-                    <!-- Start like comment -->
-                           <div class="row comment-likes-section">
-                    <div class="col-1">
-                        <strong>
-                            <form class="d-inline" action="{% url 'comment_like' comment.id %}" method="POST">
-                                {% csrf_token %}
-                                {% if comment.likes.exists %}
-                                <button type="submit" class="btn-like"><i class="fas fa-heart"></i></button>
-                                {% else %}
-                                <button type="submit" class="btn-like"><i class="far fa-heart"></i></button>
-                                {% endif %}
-                            </form>
-                        </strong>
-                    </div>
-                    <div class="col-1 d-flex align-items-center" style="padding: 0;">
-                        <strong>
-                        <span class="text-secondary likes-count">{{ comment.likes.count }}</span>
-                        </strong>
-                    </div>
-                </div>
-                    <!-- End like comment -->
-                    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="card-container col-lg-8 mb-4 mt-3">
+                <h3>Comments:</h3>
+                <div>
+                {% if comments %}
+                    {% for comment in comments %}
+                        <div class="comments">
+                            <div>
+                                {{ comment.body | linebreaksbr }}
+                            </div>
+                            <div>
+                                <p class="post-icon mt-1">{{ comment.name }} on 
+                                    <span>{{ comment.created_on }}</span>
+                                </p>
+                            </div>
+                            {% if user.is_authenticated %}
+                            <!-- Start like comment -->
+                                        <div class="col-1 ">
+                                            <strong>
+                                                {% if user.is_authenticated %}
+                                                <form class="d-inline" action="{% url 'comment_like' comment.id %}" method="POST">
+                                                        {% csrf_token %}
+                                                        {% if comment.likes.exists %}
+                                                        <button type="submit" class="btn-like"><i class="fas fa-heart"></i></button>
+                                                        {% else %}
+                                                        <button type="submit" class="btn-like"><i class="far fa-heart"></i></button>
+                                                        {% endif %}
+                                                    </form>
+                                                    {% else %}
+                                                    <span class="text-secondary"><i class="far fa-heart"></i></span>
+                                                    {% endif %}
+                                                    <span class="text-secondary likes-count">{{ comment.likes.count }}</span>
+                                                {% endif %}
+                                            </strong>
+                                        </div>
+                            <!-- End like comment -->
+                        </div>
+                            <div>
+                            {% if comment.name == request.user.username %}
+                                <div class="col-sm mt-1">
+                                    <a class="btn btn-sm btn-edit"
+                                        href="{% url 'edit_comment' post.slug comment.pk %}">Edit</a>
+                                    <a class="btn btn-sm btn-delete"
+                                        href="{% url 'delete_comment' post.slug comment.pk %}">Delete</a>
+                                </div>
+                            {% endif %}
+                            </div>
+                        </div>
                     <hr>
-                </div>
-                <!-- Our for loop ends here -->
-                {% endfor %}
-            </div>
-        </div>
-        <div class="col-md-4 card mb-4  mt-3 ">
-            <div class="card-body">
-                {% if commented %}
-                <div class="alert alert-success d-flex align-items-center custom-alert" role="alert" id="msg">
-                    <i class="fas fa-check-circle fa-lg me-2"></i>
-                    <div class="flex-grow-1 me2">
-                        Your comment will be rendered after approval.
-                    </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                    </button>
-
-                </div>
+                    {% endfor %}
                 {% else %}
-                {% if user.is_authenticated %}
+                    <p>No comments yet, be the first to share your experience!</p>
 
-                <h3>Leave an opinion:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;">
-                    {{ comment_form | crispy }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
+                    {% if not user.is_authenticated %}
+                        <p>
+                            To post a comment, <a class="link" href="{% url 'account_login' %}">log in</a> to our site!<br> 
+                            If you do not have an account, please <a class="link" href="{% url 'account_signup' %}">register</a> here.
+                        </p>
+                    {% endif %}
+
                 {% endif %}
-                {% endif %}
+                </div>
             </div>
+            <div class="card-container col-lg-4 mb-4 mt-3 ">
+            {% if user.is_authenticated %}
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ comment_form | crispy }}
+                    <button type="submit" class="btn btn-signup btn-md mt-2">Submit</button>
+                </form>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
-<script>
-    setTimeout(function () {
-        let messages = document.getElementById("msg");
-        let alert = new bootstrap.Alert(messages);
-        alert.close();
-    }, 3500);
-</script>
 
 {% endblock content %}
