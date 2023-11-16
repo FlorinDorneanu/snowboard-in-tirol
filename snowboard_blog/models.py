@@ -24,6 +24,40 @@ class Post(models.Model):
     likes = models.ManyToManyField(
         User, related_name='snowboard_blog_likes', blank=True)
 
+    SLOPE_DIFFICULTY_CHOICES = [
+        ("EASY", "Easy"),
+        ("INTERMEDIATE", "Intermediate"),
+        ("ADVANCED", "Advanced"),
+        ("EXPERT", "Expert"),
+    ]
+
+    slope_difficulty = models.CharField(
+        max_length=250,
+        choices=SLOPE_DIFFICULTY_CHOICES,
+        default="EASY",
+        null=False
+    )
+
+    SNOW_CONDITION_CHOICES = [
+        ("POWDER", "Powder"),
+        ("PACKED", "Packed"),
+        ("ICED", "Iced"),
+        ("SLUSHY", "Slushy"),
+    ]
+
+    snow_condition = models.CharField(
+        max_length=250,
+        choices=SNOW_CONDITION_CHOICES,
+        default="POWDER",
+        null=False
+    )
+
+    elevation = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        help_text="Enter the elevation of the slope in meters."
+    )
+
 # * Meta class to define ordering *
     class Meta:
         ordering = ['-created_on']
