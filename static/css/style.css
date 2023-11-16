@@ -97,6 +97,7 @@ p {
     color: white;
     position: relative;
     border: 2px solid rgba(25, 116, 210, 0.3);
+    text-align: center;
 }
 
 .masthead-image {
@@ -112,18 +113,32 @@ p {
 }
 
 .post-link:hover,
-.page-link {
+.page-link
+.slope-icon {
+    margin-top: 3%;
+    margin-left: 5%;
     color: #d4dce5;
 }
 
+.slope-icon {
+    font-size: 15px;
+}
+
+.slope-icon i {
+    margin: 5px;
+}
+
 .post-title {
-    margin-top: 20%;
+    margin-top: 10%;
     margin-left: 5%;
+    margin-bottom: 5%;
+    font-size: 25px;
 }
 
 .post-subtitle {
     margin-left: 5%;
-    color: lightgray;
+    margin-top: 5%;
+    font-size: 10px;
 }
 
 .btn-signup {
@@ -228,4 +243,30 @@ div.text-center.p-3 {
 .btn.btn-sm.btn-delete {
     background-color: rgb(208, 32, 32);
     color: white;
+}
+
+@media screen and (max-width:992px){
+    .post-title{
+        font-size: 15px;
+    }
+    .slope-icon {
+        font-size: 8px;
+        margin-bottom: 10px;
+    }
+    .post-subtitle {
+        font-size: 7px;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .post-title{
+        font-size: 25px;
+    }
+    .slope-icon {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .post-subtitle {
+        font-size: 10px;
+    }
 }
