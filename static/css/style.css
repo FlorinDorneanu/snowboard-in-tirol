@@ -4,7 +4,11 @@ body {
 }
 
 main {
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
+}
+
+div.row {
+    margin-top: 0.5rem;
 }
 
 h1,
@@ -16,6 +20,23 @@ h4 {
 
 p {
     font-family: Merriweather, sans-serif;
+}
+
+.logo {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo > i {
+    color: #5679c5;
+}
+
+a.navbar-brand > h1 {
+    font-family: 'Krona One';
+    font-size: 20px;
+    color: #2B547E;
 }
 
 .brand {
@@ -62,11 +83,6 @@ p {
 
 .image-container {
     position: relative;
-}
-
-.card-img-top {
-    width: 300px;
-    height: 200px;
 }
 
 .image-flash {
@@ -195,10 +211,15 @@ div.col-1.d-flex.align-items-center {
 
 footer {
     background-color: rgba(89, 123, 157, 0.3);
+    margin-top: 1rem;
 }
 
 footer i {
     color: #5679c5;
+}
+
+.social-media{
+    margin-bottom: 10px;
 }
 
 span.asteriskField {
@@ -219,6 +240,10 @@ img.card-img-top {
 
 footer>a {
     color: #fff;
+}
+
+.navbar {
+    color: #5679c5;
 }
 
 div.text-center.p-3 {
@@ -245,6 +270,15 @@ div.text-center.p-3 {
     color: white;
 }
 
+p.card-icon {
+    color: #5679c5;
+}
+
+span.divide {
+    font-size: 40px;
+    color: #5679c5;
+}
+
 @media screen and (max-width:992px){
     .post-title{
         font-size: 15px;
@@ -268,5 +302,17 @@ div.text-center.p-3 {
     }
     .post-subtitle {
         font-size: 10px;
+    }
+
+    a.navbar-brand > h1 {
+        font-size: 10px;
+    }
+
+    main {
+        margin-bottom: 7rem;
+    }
+
+    a.btn.btn-link.btn-floating.btn-lg.m-1 {
+        font-size: 15px;
     }
 }

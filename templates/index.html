@@ -10,7 +10,7 @@
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
-                    <div class="col-mb-4">
+                    <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
@@ -26,14 +26,27 @@
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <h2 class="card-title">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt }}</p>
+                                <p class="card-text card-icon"><i class="fas fa-snowboarding"></i>
+                                    Difficulty: {{ post.get_slope_difficulty_display }}</p>
+                                <p class="card-text card-icon"><i class="fas fa-snowflake"></i>
+                                    Snow Condition: {{ post.get_snow_condition_display }}</p>
+                                <p class="card-text card-icon"><i class="fas fa-mountain"></i>
+                                   Elevation: {{ post.elevation }}m</p>
                             </a>
                             <hr>
-                            <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
-                                {{ post.number_of_likes }}</p>
+                            <p class="card-text text-muted h6">{{ post.created_on}}</p>
+                            <p class="card-icon">
+                                <!-- post likes count -->
+                                <span class="p-1"><i class="fas fa-heart"></i> {{ post.number_of_likes }}</span>
+                                <!-- post comments count -->
+                                {% with post.comments.count as total_comments %}
+                                <span class="p-1"><i class="fas fa-comment"></i> {{ total_comments }}</span>
+                                {% endwith %}
+                            </p>
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:2 %}
+                {% if forloop.counter|divisibleby:3 %}
             </div>
             <div class="row">
                 {% endif %}
@@ -49,11 +62,9 @@
             {% endif %}
             {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-
             {% endif %}
         </ul>
     </nav>
     {% endif %}
 </div>
-
 {%endblock%}

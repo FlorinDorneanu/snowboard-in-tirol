@@ -1,4 +1,7 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+
+{% block content %}
+
 {% load crispy_forms_tags %}
 
 <div class="masthead">
@@ -7,7 +10,7 @@
             <div class="col-md-6 masthead-text">
                 <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title">{{ post.title }}</h1>
-                <p class="card-text slope-icon"><i class="fas fa-mountain"></i> Difficulty: {{ post.get_slope_difficulty_display }}</p>
+                <p class="card-text slope-icon"><i class="fas fa-snowboarding"></i> Difficulty: {{ post.get_slope_difficulty_display }}</p>
 <p class="card-text slope-icon"><i class="fas fa-snowflake"></i> Snow Condition: {{ post.get_snow_condition_display }}</p>
 <p class="card-text slope-icon"><i class="fas fa-mountain"></i> Elevation: {{ post.elevation }}m</p>
                 <!-- Post author goes before the | the post's created date goes after -->
