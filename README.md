@@ -2,6 +2,9 @@
 
 Welcome to the Snowboard in Tirol Blog! This Django-based platform captures the thrill and excitement of snowboarding adventures in the breathtaking landscapes of Tirol. Users can explore captivating blog posts, leave comments, and show appreciation by liking their favorite stories.
 
+<img width="700" alt="Snowboard in Tirol" src="documentation/am-i-responsive.jpeg">
+
+
 You can view the live website [here](https://snowboard-in-tirol-1614d9ced980.herokuapp.com/).
 
 ## UX
@@ -64,12 +67,6 @@ To ensure that users can access and use the app seamlessly across various device
 - **Viewport Settings**: The `<meta name="viewport">` tag is set to control the page's scaling and responsiveness, making it mobile-friendly.
 
 - **Bootstrap Grid**: The Bootstrap grid system is utilized to create responsive layouts and adapt content to different screen sizes.
-
-Florin Dorneanu:
-	👍🏾
-
-+43 676 4869833:
-	## Features/Structure
 
 ### Navigation
 
