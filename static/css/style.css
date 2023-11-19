@@ -15,11 +15,17 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: Montserrat, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 p {
-    font-family: Merriweather, sans-serif;
+    font-family: 'Merriweather', sans-serif !important;
+}
+
+div.comment {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgba(89, 123, 157, 0.3);
 }
 
 .logo {
